@@ -1,5 +1,4 @@
-from pytemplate.utils import expressions_example
-from src.pytemplate.utils import variables_example
+from src.pytemplate.utils import expressions_example, variables_example
 
 
 def test_my_int():
@@ -42,3 +41,15 @@ def test_product_ab():
     assert isinstance(expressions_example.product_ab, int)
     assert expressions_example.product_ab == expressions_example.a * expressions_example.b
     assert expressions_example.product_ab == 50
+
+
+def test_calculate_and_print(capsys):
+    global expressions_example
+    expressions_example.a = 2
+    expressions_example.b = 4
+
+    expressions_example.calculate_and_print()
+
+    captured = capsys.readouterr()
+    assert "Sum of a and b: 6" in captured.out
+    assert "Product of a and b: 8" in captured.out
