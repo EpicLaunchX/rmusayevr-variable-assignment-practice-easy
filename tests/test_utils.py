@@ -48,7 +48,7 @@ def test_calculate_and_print(capsys):
     expressions_example.a = 2
     expressions_example.b = 4
 
-    expressions_example.calculate_and_print()
+    expressions_example.calculate_and_print(a=expressions_example.a, b=expressions_example.b)
 
     captured = capsys.readouterr()
     assert "Sum of a and b: 6" in captured.out
