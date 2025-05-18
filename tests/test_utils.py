@@ -1,3 +1,4 @@
+from pytemplate.utils import expressions_example
 from src.pytemplate.utils import variables_example
 
 
@@ -29,3 +30,15 @@ def test_print_variables_output(capsys):
     assert "my_int: 1" in captured.out
     assert "my_str: x" in captured.out
     assert "my_float: 2.5" in captured.out
+
+
+def test_sum_ab():
+    assert isinstance(expressions_example.sum_ab, int)
+    assert expressions_example.sum_ab == expressions_example.a + expressions_example.b
+    assert expressions_example.sum_ab == 15
+
+
+def test_product_ab():
+    assert isinstance(expressions_example.product_ab, int)
+    assert expressions_example.product_ab == expressions_example.a * expressions_example.b
+    assert expressions_example.product_ab == 50
